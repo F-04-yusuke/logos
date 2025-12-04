@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTubeメモ帳</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+
+        <aside class="sidebar">
+            <h3 class="sidebar-title">📂 再生リスト/分類</h3>
+            <ul class="playlist-list">
+                <li class="active">料理 (5)</li>
+                <li>ガジェットレビュー (12)</li>
+                <li>ゲーム配信 (8)</li>
+            </ul>
+
+            </aside>
+
+        <main class="content">
+            <section class="video-input-section">
+                <h2>🎬 動画情報読み込み</h2>
+                <div class="url-input-group">
+                    <input type="text" id="video-url" placeholder="YouTube動画URLを記入" value="https://www.youtube.com/watch?v=sample">
+                    <button id="load-video-btn">▶ 読み込み</button>
+                </div>
+
+                <div class="video-details" id="video-details" style="display: none;">
+                    <div class="thumbnail-container">
+                        <img id="video-thumbnail" src="" alt="動画サムネイル" width="160" height="90">
+                    </div>
+                    <div class="info-and-buttons">
+                        <h3 id="video-title">**[動画のタイトルがここに表示されます]**</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn">🌎 要約</button>
+                            <button class="action-btn">📝 文字起こし</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>⭐ お気に入りテキスト管理テーブル</h3>
+                <table id="notes-table">
+                    <thead>
+                        <tr>
+                            <th>① お気に入りのテキスト</th>
+                            <th>② 種類</th>
+                            <th>③ 該当時間/日時</th>
+                            <th>④ ユーザーメモ <button class="add-column-btn">➕</button></th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+                <button id="add-row-btn" class="primary-btn">➕ 行を追加</button>
+            </section>
+
+            </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
