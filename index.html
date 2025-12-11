@@ -1,65 +1,72 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTubeメモ帳</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>LOGOS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSSは別ファイルに記述しますが、ここでは一時的に最低限の設定を保持 */
+        #output tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
 </head>
+
 <body>
-    <div class="container">
+    <h1>LOGOS</h1>
 
-        <aside class="sidebar">
-            <h3 class="sidebar-title">📂 再生リスト/分類</h3>
-            <ul class="playlist-list">
-                <li class="active">料理 (5)</li>
-                <li>ガジェットレビュー (12)</li>
-                <li>ゲーム配信 (8)</li>
-            </ul>
+    <form id="input_form">
+        <fieldset>
+            <legend>根拠・抜粋の投稿</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th>情報源URL</th>
+                        <th>分類</th>
+                        <th>該当箇所</th>
+                        <th>概略（抜粋）</th>
+                        <th>投稿</th>
+                    </tr>
+                </thead>
+                <tbody id="input_row">
+                    <tr>
+                        <td><input type="url" id="url" placeholder="URLを記入"></td>
+                        <td>
+                            <select id="source_type">
+                                <option value="youtube">YouTube</option>
+                                <option value="x">X</option>
+                                <option value="article">記事</option>
+                                <option value="qa">知恵袋/Q&A</option>
+                                <option value="book">本</option>
+                            </select>
+                        </td>
+                        <td><input type="text" id="time_page" placeholder="例: 7:15～10:40 / 50P/6行目"></td>
+                        <td><textarea id="summary" placeholder="抜粋内容や概略を記入（最大140字程度）" maxlength="200"></textarea></td>
+                        <td><button type="button" id="send">投稿</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </form>
 
-            </aside>
+    <h2>投稿された根拠一覧</h2>
+    <table id="output">
+        <thead>
+            <tr>
+                <th>情報源URL</th>
+                <th>分類</th>
+                <th>該当箇所</th>
+                <th>概略（抜粋）</th>
+                <th>投稿日時</th>
+                <th>操作</th>  
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
 
-        <main class="content">
-            <section class="video-input-section">
-                <h2>🎬 動画情報読み込み</h2>
-                <div class="url-input-group">
-                    <input type="text" id="video-url" placeholder="YouTube動画URLを記入" value="https://www.youtube.com/watch?v=sample">
-                    <button id="load-video-btn">▶ 読み込み</button>
-                </div>
-
-                <div class="video-details" id="video-details" style="display: none;">
-                    <div class="thumbnail-container">
-                        <img id="video-thumbnail" src="" alt="動画サムネイル" width="160" height="90">
-                    </div>
-                    <div class="info-and-buttons">
-                        <h3 id="video-title">**[動画のタイトルがここに表示されます]**</h3>
-                        <div class="action-buttons">
-                            <button class="action-btn">🌎 要約</button>
-                            <button class="action-btn">📝 文字起こし</button>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>⭐ お気に入りテキスト管理テーブル</h3>
-                <table id="notes-table">
-                    <thead>
-                        <tr>
-                            <th>① お気に入りのテキスト</th>
-                            <th>② 種類</th>
-                            <th>③ 該当時間/日時</th>
-                            <th>④ ユーザーメモ <button class="add-column-btn">➕</button></th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        </tbody>
-                </table>
-                <button id="add-row-btn" class="primary-btn">➕ 行を追加</button>
-            </section>
-
-            </main>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
+
 </html>
